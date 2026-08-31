@@ -1,0 +1,53 @@
+name: Build Desktop Clients
+
+on:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Windows client
+        run: npm run dist:win
+
+      - name: Upload Windows client
+        uses: actions/upload-artifact@v4
+        with:
+          name: edens-viper-chat-windows
+          path: dist/*
+
+  macos:
+    runs-on: macos-latest
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Mac client
+        run: npm run dist:mac
+
+      - name: Upload Mac client
+        uses: actions/upload-artifact@v4
+        with:
+          name: edens-viper-chat-macos
+          path: dist/*
