@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect width="512" height="512" rx="96" fill="#070707"/>
+<path d="M110 100h292L256 420z" fill="none" stroke="#b00000" stroke-width="28"/>
+<path d="M165 155h182L256 342z" fill="#260000" stroke="#df0000" stroke-width="10"/>
+<text x="256" y="260" text-anchor="middle" font-size="96" font-family="Arial, sans-serif" font-weight="bold" fill="#f0f0f0">EV</text>
+</svg>
