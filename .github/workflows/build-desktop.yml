@@ -7,6 +7,10 @@ jobs:
   windows:
     runs-on: windows-latest
 
+    defaults:
+      run:
+        working-directory: edens_viper_desktop_client
+
     steps:
       - name: Get source code
         uses: actions/checkout@v4
@@ -14,7 +18,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -26,10 +30,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: edens-viper-chat-windows
-          path: dist/*
+          path: edens_viper_desktop_client/dist/*
 
   macos:
     runs-on: macos-latest
+
+    defaults:
+      run:
+        working-directory: edens_viper_desktop_client
 
     steps:
       - name: Get source code
@@ -38,7 +46,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
@@ -50,4 +58,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: edens-viper-chat-macos
-          path: dist/*
+          path: edens_viper_desktop_client/dist/*
